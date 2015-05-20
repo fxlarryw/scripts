@@ -1,0 +1,101 @@
+set cut_paste_input [stack 0]
+version 8.0 v5
+push $cut_paste_input
+Dot {
+ name Dot12
+ selected true
+ xpos -226
+ ypos -26158
+}
+set Nf11c400 [stack 0]
+Dot {
+ name Dot13
+ selected true
+ xpos -525
+ ypos -26158
+}
+add_layer {aov_util_z_closest aov_util_z_closest.red aov_util_z_closest.green aov_util_z_closest.blue aov_util_z_closest.alpha}
+Shuffle {
+ in {aov_util_z_closest.red -aov_util_z_closest.green -aov_util_z_closest.blue -aov_util_z_closest.alpha}
+ red green
+ blue green
+ alpha green
+ name Shuffle1
+ selected true
+ xpos -559
+ ypos -26120
+ postage_stamp_frame 1001
+}
+Grade {
+ channels rgba
+ blackpoint 2000
+ whitepoint 259000
+ name Grade1
+ selected true
+ xpos -559
+ ypos -26094
+ postage_stamp_frame 1001
+}
+Grade {
+ channels rgba
+ gamma 1.3
+ name Grade3
+ selected true
+ xpos -559
+ ypos -26068
+ postage_stamp_frame 1001
+}
+Constant {
+ inputs 0
+ color {0.2878411114 0.6572458744 1.008764982 1}
+ first 1001
+ last 1002
+ name Constant2
+ selected true
+ xpos -762
+ ypos -26385
+ postage_stamp_frame 1001
+}
+ColorCorrect {
+ saturation 0.9
+ gain {1 1.01 1 1}
+ name ColorCorrect4
+ selected true
+ xpos -762
+ ypos -26266
+ postage_stamp_frame 1001
+}
+Grade {
+ multiply {1 1 1 1}
+ name Grade9
+ selected true
+ xpos -762
+ ypos -26170
+ postage_stamp_frame 1001
+}
+Dot {
+ name Dot14
+ selected true
+ xpos -728
+ ypos -26020
+}
+Merge2 {
+ inputs 2
+ operation mask
+ name Merge5
+ selected true
+ xpos -559
+ ypos -26024
+ postage_stamp_frame 1001
+}
+push $Nf11c400
+Merge2 {
+ inputs 2
+ operation atop
+ name Merge6
+ label atmo
+ selected true
+ xpos -449
+ ypos -26030
+ postage_stamp_frame 1001
+}
